@@ -11,6 +11,7 @@ runs in this game (server version drift, tick rate limits, deceptive error codes
 | `spacemolt_client.py` | Auth + rate-limit-aware v2 HTTP client (CLI + library) |
 | `flyroute.py` | Hop-loop autopilot that treats deceptive jump errors as success |
 | `board_poll.py` | Docked freight-board whale watcher |
+| `pax_poll.py` | Docked passenger-board watcher with a surge-rate gate |
 
 ## Setup
 
