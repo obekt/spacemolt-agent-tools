@@ -1,9 +1,9 @@
-# runtime state — never commit
-.session_id
-.mutation_gate.json
+# runtime artifacts — never commit these
 last_result.json
 flyroute.log
 board_poll.log
+pax_poll.log
+.mutation_gate.json
+.session_cache*
 __pycache__/
 *.pyc
-.env

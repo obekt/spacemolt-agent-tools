@@ -94,6 +94,19 @@ compare against your tank *including the return trip*. The hop runner
 deliberately does not make refuel decisions — stranding mid-corridor is an
 operator error, not a script bug.
 
+**One operator per ship.** If you run both a scheduled/agent loop and a manual
+session, they will race for the same vessel: interleaved jumps computed from
+each other's stale positions produce `not_connected` / `action_in_progress`
+retry storms and the ship follows neither plan (learned live, 2026-09-17).
+Pause one operator before starting the other. The file-backed mutation gate
+shares *timing* between scripts; it cannot share *intent*.
+
+**Credential rotation costs nothing** when you follow the setup above: change
+the config file (or env), delete any cached session id (`.session_cache*`,
+`play_sid.txt`-style files), and re-login. Scripts never contain secrets,
+so a rotated password requires zero code edits — and grep your tree for old
+credentials before any commit anyway.
+
 ## What's deliberately NOT here
 
 The economic strategy layer — which stations mint whale fares, corridor-stacking
